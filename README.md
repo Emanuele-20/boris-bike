@@ -30,7 +30,7 @@ A Domain Model is an abstract representation of the Objects within a system, and
 
 Classes and Methods need to be managed in order to work together, this is called Feature Test.
 
-We start declaring a new variable and set it egual a new Dockinstation object = 
+We start with declaring a new variable and set it egual a new Dockinstation object.
 
 > let dockingStationStratford = new DockingStation()
 Uncaught ReferenceError: DockingStation is not defined
@@ -50,5 +50,11 @@ Set the testing framework and run a test, will be failed and we have to understa
       7 |     
       8 | })
 ```
+Now we create a ne file .js where we create a new DockingStation class and we link those 2 file. (Module.eports and Require)
 
 
+
+Require a file in node REPL = **let newDockingStation =  require ('./src/dockingStation')**
+Require a file a run Node REPL with the code loaded = **node -i -e "$(< src/dockingStation.js)"**
+
+## Step 4  - Back to the feature

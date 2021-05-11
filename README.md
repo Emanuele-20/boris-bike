@@ -24,7 +24,7 @@ I'd like to see if a bike is working
 
 Diagram: https://lucid.app/lucidchart/cef3b1af-fa7f-4d23-9819-9f1b9e4128ab/edit?page=0_0#
 
-## Step 2 - From Domain Model to Feature Test
+## Step 2 - From Domain Model to Feature Test (REPL)
 
 A Domain Model is an abstract representation of the Objects within a system, and the Messages they use to communicate with one another.
 
@@ -35,7 +35,7 @@ We start with declaring a new variable and set it egual a new Dockinstation obje
 > let dockingStationStratford = new DockingStation()
 Uncaught ReferenceError: DockingStation is not defined
 
-## Step 3  - From Feature Test to Unit Test
+## Step 3  - From Feature Test to Unit Test (In the Testing Framework)
 
 Set the testing framework and run a test, will be failed and we have to understand if we are receiving back a JavaScript Failure or a Jest failure. The primary skill in debugging is to read and understand error messages and test failures.
 
@@ -58,3 +58,19 @@ Require a file in node REPL = **let newDockingStation =  require ('./src/docking
 Require a file a run Node REPL with the code loaded = **node -i -e "$(< src/dockingStation.js)"**
 
 ## Step 4  - Back to the feature
+
+> let station = new DockingStation()
+undefined
+> station.releaseABike()
+Uncaught TypeError: station.releaseABike is not a function
+
+Now we go back (for the unit test) in the test file and we create a test for this new method: 
+
+```
+ test("Check if a new istance of DockinsgStation accepts a releaseABike() method", () => {
+        let newDockingStation =  new DockingStation()
+        expect(newDockingStation.releaseABike()).toBe(true)
+    })
+```
+We now fail again and we add more functionality inside the code file in order to pass the test.
+

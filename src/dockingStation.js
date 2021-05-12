@@ -1,7 +1,9 @@
+const Bike = require("./bike.js");
+
 class DockingStation{
 
     releaseABike(){
-        return true
+        return new Bike
     }
 
 }

@@ -74,3 +74,5 @@ Now we go back (for the unit test) in the test file and we create a test for thi
 ```
 We now fail again and we add more functionality inside the code file in order to pass the test.
 
+
+BDD and OOP easy understanding.

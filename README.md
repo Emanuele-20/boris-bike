@@ -56,6 +56,7 @@ Now we create a ne file .js where we create a new DockingStation class and we li
 
 Require a file in node REPL = **let newDockingStation =  require ('./src/dockingStation')**
 Require a file a run Node REPL with the code loaded = **node -i -e "$(< src/dockingStation.js)"**
+or = **> const DockingStation = require('./dockingStation')**
 
 ## Step 4  - Back to the feature
 
@@ -75,4 +76,33 @@ Now we go back (for the unit test) in the test file and we create a test for thi
 We now fail again and we add more functionality inside the code file in order to pass the test.
 
 
-BDD and OOP easy understanding.
+BDD = https://github.com/makersacademy/course/blob/master/pills/bdd_cycle.md 
+
+OOP easly explained = https://www.reddit.com/r/explainlikeimfive/comments/1pyhng/eli5_objected_oriented_programming/
+
+---------------------------
+```
+As a member of the public
+So I can return bikes I've hired
+I want to dock my bike at the docking station
+```
+As a member of the public
+So I can decide whether to use the docking station
+I want to see a bike that has been docked
+```
+| Objects | Messages|
+| :--:    | :--:    |
+| Person    |       |
+| DockingStation  | releaseABike() |
+| Bike            | isWorking() |
+| DockingStation  | dock(bike)  |
+| Bike            | hasBeenDocked(bike)|
+|  DockingStation | throw error if no bike available|
+
+
+```
+As a member of the public,
+So that I am not confused and charged unnecessarily,
+I'd like docking stations not to release bikes when there are none available
+```
+

@@ -1,4 +1,3 @@
-const Bike = require("./bike.js");
 class DockingStation {
     constructor(capacity = 20){
         this.bikes = []
@@ -17,24 +16,20 @@ class DockingStation {
         if(this._dockIsFull()){
             return "Docking station full"
         } else {
-            console.log("Your bike is docked")
             this.bikes.push(bike)
         }
         return bike
     }
 
-
     attualCapacity(){
         return this.bikes.length
     }
-
 
     _dockIsFull(){
         if(this.bikes.length >= this.capacity){
             return true
         }
     }
-
     _dockIsEmpty(){
         if(this.bikes.length  === 0 ){
             return true
@@ -44,7 +39,6 @@ class DockingStation {
     changeCapacity(num){
         return this.capacity = num
     }
-
 
 }
 module.exports = DockingStation;

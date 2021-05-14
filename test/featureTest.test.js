@@ -20,4 +20,13 @@ describe("Boris Bike", () => {
         dockingStation.dock(bike)
         expect(dockingStation.releaseABike()).toBeInstanceOf(Bike)
     })
+
+    it("Return an error if we want to dock a bike in a full docking station", () =>{
+        let newDockingStation =  new DockingStation()  
+        let bike = new Bike()
+        for (let i = 0; i <= newDockingStation.capacity; i++){
+           newDockingStation.dock(bike)
+        }
+        expect(newDockingStation.dock(bike)).toBe("Docking station full")
+    })
 })

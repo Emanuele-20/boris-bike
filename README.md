@@ -1,3 +1,8 @@
+# Boris Bikes Challenges
+
+'Santander Cycles' project. 
+Anyone can hire out a bike and ride it around London.
+
 ## Step 1 - From User stories to Domain Model
 
 A User Story describe one thing a program is expected to do, from the prospective of somebody using that program. (Agile Approach)
@@ -64,7 +69,7 @@ Now we go back (for the unit test) in the test file and we create a test for thi
 We now fail again and we add more functionality inside the code file in order to pass the test.
 
 
-BDD = https://github.com/makersacademy/course/blob/master/pills/bdd_cycle.md 
+BDD Cycle = https://github.com/makersacademy/course/blob/master/pills/bdd_cycle.md 
 
 OOP easly explained = https://www.reddit.com/r/explainlikeimfive/comments/1pyhng/eli5_objected_oriented_programming/
 

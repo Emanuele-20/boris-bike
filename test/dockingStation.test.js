@@ -33,16 +33,7 @@ describe("Docking Station", () => {
         newDockingStation.dock(bike)
         expect(newDockingStation.dock(bike)).toBe("Docking station full")
         //Assuming we had an two bike dock limit
-    })
-
-    it("Return an error if we want to dock a bike in a full docking station", () =>{
-        let newDockingStation =  new DockingStation()  
-        let bike = new Bike()
-        for (let i = 0; i <= newDockingStation.capacity; i++){
-            console.log(newDockingStation.dock(bike))
-        }
-        expect(newDockingStation.dock(bike)).toBe("Docking station full")
-    })
+    })    
 
     it("Has a default capacity", () => {
         expect(dockingStation.capacity).toBe(20)
@@ -52,6 +43,5 @@ describe("Docking Station", () => {
         dockingStation.changeCapacity(35)
         expect(dockingStation.capacity).toBe(35)
     })
-
     
 })

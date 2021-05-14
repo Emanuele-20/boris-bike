@@ -1,54 +1,50 @@
 const Bike = require("./bike.js");
 class DockingStation {
-
-    constructor(){
-        this.capacity = []
+    constructor(capacity = 20){
+        this.bikes = []
+        this.capacity = capacity
     }
 
     releaseABike(){
-
-        if (this.dockIsEmpty()){
+        if (this._dockIsEmpty()){
             return ("No bikes available")
         } else {
-            return this.capacity.pop()
+            return this.bikes.pop()
         }
-        
     }
     
     dock(bike){
-
-        if(this.dockIsFull()){
+        if(this._dockIsFull()){
             return "Docking station full"
         } else {
-            this.capacity.push(bike)
+            console.log("Your bike is docked")
+            this.bikes.push(bike)
         }
         return bike
     }
 
 
-    checkCapacity(){
-
-        return this.capacity.length
-
+    attualCapacity(){
+        return this.bikes.length
     }
 
 
-    dockIsFull(){
-
-        if(this.capacity.length >= 20){
+    _dockIsFull(){
+        if(this.bikes.length >= this.capacity){
             return true
         }
-
     }
 
-    dockIsEmpty(){
-
-        if(this.capacity.length  === 0 ){
+    _dockIsEmpty(){
+        if(this.bikes.length  === 0 ){
             return true
         }
-        
     }
+
+    changeCapacity(num){
+        return this.capacity = num
+    }
+
 
 }
-
 module.exports = DockingStation;

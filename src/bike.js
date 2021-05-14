@@ -1,7 +1,9 @@
-class Bike{
+class Bike {
 
     isWorking(){
+
         return true 
+        
     }
     
 }

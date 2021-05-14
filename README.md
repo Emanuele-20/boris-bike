@@ -15,7 +15,7 @@ So that I can use a good bike,
 I'd like to see if a bike is working
 ```
 
-### Domain model
+### Initial Domain model
 | Objects | Messages|
 | :--:    | :--:    |
 | Person    |       |
@@ -39,19 +39,7 @@ Uncaught ReferenceError: DockingStation is not defined
 
 Set the testing framework and run a test, will be failed and we have to understand if we are receiving back a JavaScript Failure or a Jest failure. The primary skill in debugging is to read and understand error messages and test failures.
 
-```
-    ReferenceError: DockingStation is not defined
-
-      3 | describe("Docking Station", ()=> {
-      4 |     test("Docking station object", () => {
-    > 5 |         expect(DockingStation).toBe({})
-        |                ^
-      6 |     })
-      7 |     
-      8 | })
-```
 Now we create a ne file .js where we create a new DockingStation class and we link those 2 file. (Module.eports and Require)
-
 
 
 Require a file in node REPL = **let newDockingStation =  require ('./src/dockingStation')**
@@ -121,3 +109,10 @@ I want a docking station to have a default capacity of 20 bikes.
 ```
 
 Our program is working, but it's getting complex. We need to refactor it into a better shape. We will do so using the first of several design principles: the Single Responsibility Principle ('SRP').
+
+
+```
+As a system maintainer,
+So that busy areas can be served more effectively,
+I want to be able to specify a larger capacity when necessary.
+```

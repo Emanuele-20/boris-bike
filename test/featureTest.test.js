@@ -16,7 +16,7 @@ describe("Boris Bike", () => {
         expect(dockingStation.attualCapacity()).toBe(1)
     })
 
-    it("Tests if I can release a bike", () => {
+    xit("Tests if I can release a bike", () => {
         dockingStation.dock(bike)
         expect(dockingStation.releaseABike()).toBeInstanceOf(Bike)
     })

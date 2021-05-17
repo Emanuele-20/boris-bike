@@ -43,5 +43,13 @@ describe("Docking Station", () => {
         dockingStation.changeCapacity(35)
         expect(dockingStation.capacity).toBe(35)
     })
+
+    it("Not release a broken bike", ()=>{
+        let redBike = bike
+        redBike.reportBroken()
+        dockingStation.dock(redBike)
+        expect(dockingStation.releaseABike(redBike)).toBe("This bike is broken")
+
+    })
     
 })

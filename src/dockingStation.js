@@ -1,3 +1,4 @@
+const Bike = require('../src/bike')
 class DockingStation {
     constructor(capacity = 20){
         this.bikes = []
@@ -7,6 +8,9 @@ class DockingStation {
     releaseABike(){
         if (this._dockIsEmpty()){
             return ("No bikes available")
+        } else if (Bike.broken = true ){
+            return "This bike is broken"
+            // console log message and return the next element ??? 
         } else {
             return this.bikes.pop()
         }

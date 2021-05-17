@@ -10,6 +10,7 @@ A User Story describe one thing a program is expected to do, from the prospectiv
 As developer we have to translate those user stories into a functional system. In OOP the functional system is made up of Objects and Messages (Classes and Methods that are used to interact between them) and form the DOMAIN MODEL (an abstraction of an area of interest).
 
 ### User Stories
+
 ```
 As a person,
 So that I can use a bike,
@@ -78,7 +79,7 @@ OOP easly explained = https://www.reddit.com/r/explainlikeimfive/comments/1pyhng
 As a member of the public
 So I can return bikes I've hired
 I want to dock my bike at the docking station
-```
+
 As a member of the public
 So I can decide whether to use the docking station
 I want to see a bike that has been docked

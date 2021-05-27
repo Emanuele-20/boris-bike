@@ -26,14 +26,20 @@ describe("Van", () => {
         bike = mockNewBike()
     })
 
-    it("Can brings broken bike from docking station", ()=>{
-        mockIsWorking = false
+    it("Can brings broken bike from docking station", () => {
+        mockIsWorking = false // mocking broken bike
         dockingStation.dock(bike)
         van.takeBrokenBike(bike)
         expect(van.bikes.length).toBe(1)
     })
 
-    it("Returns an error if we reach the maximum van's capacity", () => {
+    it("Can brings JUST broken bike from docking station", () => {
+        mockIsWorking = true //mocking a good bike
+        dockingStation.dock(bike)
+        expect(van.takeBrokenBike(bike)).toBe("This bike is not broken")
+    })
+
+    xit("Returns an error if we reach the maximum van's capacity", () => {
         mockIsWorking = false
         dockingStation = new DockingStation(3)
         dockingStation.dock(bike)
@@ -45,7 +51,7 @@ describe("Van", () => {
         van.takeBrokenBike(bike)
         van.takeBrokenBike(bike)
         expect(van.bikes.length).toBe(3)
-        expect(van.takeBrokenBike(bike)).toBe("The van is full")
+        
     })  
 
 

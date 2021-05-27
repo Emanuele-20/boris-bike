@@ -10,7 +10,7 @@ class DockingStation {
         
         if (this._dockIsEmpty()){
             return ("No bikes available")
-        } else if(bikeToRelease.isWorking() == false){
+        } else if(this._isBroken(bikeToRelease)){
             return "Can't release broken bike"
         } else {
             return this.bikes.pop() // returns the element removed from the array.
@@ -43,11 +43,11 @@ class DockingStation {
         }
     }
 
-    // _isBroken(){
-    //     if (this.bikes[0].working == false){
-    //         return true
-    //     }
-    // }
+    _isBroken(bikeToRelease){
+        if (bikeToRelease.isWorking() == false){
+            return true
+        }
+    }
 
     changeCapacity(num){
         return this.capacity = num

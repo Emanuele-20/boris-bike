@@ -24,7 +24,7 @@ const mockNewBike = jest.fn().mockImplementation(() => {
         reportBroken: mockReportBroken
     }
 })
-// jest has no wway to mock the NEW keyword, so we return an object with the bike caratheristic
+// jest has no way to mock the NEW keyword, so we return an object with the bike characteristic
 
 describe("Docking Station", () => {
 
@@ -71,7 +71,7 @@ describe("Docking Station", () => {
     })
 
     it("Not release a broken bike", () =>{
-      
+    
         mockIsWorking = false;
 
         dockingStation.dock(bike)
@@ -85,3 +85,6 @@ describe("Docking Station", () => {
     // use const and not let 
     // npm run test --watch
 })
+
+//npm run test -- dockingStation.test.js      isolate just one file test
+// npm run test --watch    

@@ -16,9 +16,11 @@ describe("Boris Bike", () => {
         expect(dockingStation.attualCapacity()).toBe(1)
     })
 
-    xit("Tests if I can release a bike", () => {
+    it("Tests if I can release a bike", () => {
         dockingStation.dock(bike)
-        expect(dockingStation.releaseABike()).toBeInstanceOf(Bike)
+        expect(dockingStation.bikes.length).toEqual(1)
+        dockingStation.releaseABike(bike)
+        expect(dockingStation.bikes.length).toEqual(0)
     })
 
     it("Return an error if we want to dock a bike in a full docking station", () =>{

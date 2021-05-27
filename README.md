@@ -52,6 +52,14 @@ Require a file in node REPL = **let newDockingStation =  require ('./src/docking
 Require a file a run Node REPL with the code loaded = **node -i -e "$(< src/dockingStation.js)"**
 or = **> const DockingStation = require('./dockingStation')**
 
+> const DockingStation = require('./src/dockingStation')
+undefined
+> const Bike = require('./src/bike')
+undefined
+> let station = new DockingStation
+undefined
+> let bike = new Bike
+
 ## Step 4  - Back to the feature
 
 > let station = new DockingStation()
@@ -132,3 +140,9 @@ I'd like to report a bike as broken when I return it.
 As a maintainer of the system,
 So that I can manage broken bikes and not disappoint users,
 I'd like docking stations not to release broken bikes.
+
+```
+As a maintainer of the system,
+So that I can manage broken bikes and not disappoint users,
+I'd like docking stations to accept returning bikes (broken or not).
+```

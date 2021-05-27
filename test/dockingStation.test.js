@@ -1,38 +1,64 @@
-const Bike = require('../src/bike')
 const DockingStation = require('../src/dockingStation')
-jest.mock("../src/bike.js")
 
-beforeEach(() => {
-    dockingStation = new DockingStation()
-    bike = new Bike()
+// in Jest, if you are using a variable inside of a mock, it MUST start with mock____
+// so the variable isWorking becomes mockIsWorking etc
+
+let mockIsWorking = true
+let mockReportBroken = jest.fn()
+
+// jest.mock("modulePath", () => { ALWAYS A FUNCTION })
+
+// jest.mock("../src/bike.js", () => {
+//         jest.fn().mockImplementation(() => {
+//             return {
+//                 isWorking: () => mockIsWorking,
+//                 reportBroken: mockReportBroken
+//             }
+//         })
+//     }
+// )
+
+const mockNewBike = jest.fn().mockImplementation(() => {
+    return {
+        isWorking: () => mockIsWorking,
+        reportBroken: mockReportBroken
+    }
 })
+// jest has no wway to mock the NEW keyword, so we return an object with the bike caratheristic
 
 describe("Docking Station", () => {
 
-    xtest("Returns a bike when a releaseABike() method is called", ()=>{
-        let newDockingStation =  new DockingStation()
-        let bike = newDockingStation.releaseABike()
-        expect(bike).toBeInstanceOf(Bike)
-        expect(Bike).toHaveBeenCalledTimes(1) //jest.mock("../src/bike.js")
+    let dockingStation;
+    let bike;
+
+    beforeEach(() => {
+        dockingStation = new DockingStation()
+        bike = mockNewBike()
     })
 
-    it("Returns a specific docked bikes", () => {
-        let redBike = new Bike()
-        expect(dockingStation.dock(redBike)).toBe(redBike)
+    it("releaseABike removes the bike from the station", ()=>{
+        dockingStation.dock(bike)
+
+        expect(dockingStation.bikes.length).toEqual(1)
+
+        dockingStation.releaseABike(bike)
+
+        expect(dockingStation.bikes.length).toEqual(0)
+    })
+
+    it("Returns the bike that was docked after docking", () => {
+        expect(dockingStation.dock(bike)).toBe(bike)
     })
 
     it("Returns error if there are no bike available", () => {
-        expect(dockingStation.releaseABike()).toBe("No bikes available")
-        //Assuming we start with an empty dock 
+        expect(dockingStation.releaseABike()).toBe("No bikes available") // by default no bikes, so no bikes available
     })
 
-    xit("Returns an error if we reach the maximum docking station capacity", () => {
-        let newDockingStation =  new DockingStation()  
-        let bike = new Bike()
-        newDockingStation.dock(bike)
-        newDockingStation.dock(bike)
-        expect(newDockingStation.dock(bike)).toBe("Docking station full")
-        //Assuming we had an two bike dock limit
+    it("Returns an error if we reach the maximum docking station capacity", () => {
+        dockingStation = new DockingStation(2) // set the capacity to 2
+        dockingStation.dock(bike)
+        dockingStation.dock(bike)
+        expect(dockingStation.dock(bike)).toBe("Docking station full") // the third bike should fail
     })    
 
     it("Has a default capacity", () => {
@@ -44,12 +70,18 @@ describe("Docking Station", () => {
         expect(dockingStation.capacity).toBe(35)
     })
 
-    it("Not release a broken bike", ()=>{
-        let redBike = bike
-        redBike.reportBroken()
-        dockingStation.dock(redBike)
-        expect(dockingStation.releaseABike(redBike)).toBe("This bike is broken")
+    it("Not release a broken bike", () =>{
+      
+        mockIsWorking = false;
 
+        dockingStation.dock(bike)
+
+        const action = dockingStation.releaseABike(bike)
+        
+        expect(action).toEqual("Can't release broken bike")
+        
     })
-    
+    // was working just because in REPL the var name collide
+    // use const and not let 
+    // npm run test --watch
 })

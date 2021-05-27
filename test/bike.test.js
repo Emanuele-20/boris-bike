@@ -18,7 +18,7 @@ describe("Bike class", () => {
     it("Report a broken bike when return it", () => {
         expect(typeof bike.reportBroken).toBe('function')
         bike.reportBroken()
-        expect(bike.broken).toBe(true)
+        expect(bike.working).toBe(false)
     })
 
 

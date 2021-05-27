@@ -1,17 +1,18 @@
 class Bike {
 
     constructor(){
-        this.broken = false
+        this.working = true
     }
 
     isWorking(){
-        return true 
+       return this.working
     }
 
     reportBroken(){
-        this.broken = true
+        this.working = false
     }
 
-    
 }
 module.exports = Bike;
+
+

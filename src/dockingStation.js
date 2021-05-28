@@ -31,6 +31,14 @@ class DockingStation {
         return this.bikes.length
     }
 
+    changeCapacity(num){
+        return this.capacity = num
+    }
+
+
+
+    
+
     _dockIsFull(){
         if(this.bikes.length >= this.capacity){
             return true
@@ -47,10 +55,6 @@ class DockingStation {
         if (bikeToRelease.isWorking() == false){
             return true
         }
-    }
-
-    changeCapacity(num){
-        return this.capacity = num
     }
 
 }

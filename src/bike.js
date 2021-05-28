@@ -12,6 +12,10 @@ class Bike {
         this.working = false
     }
 
+    reportFix(){
+        this.working = true
+    }
+
 }
 module.exports = Bike;
 

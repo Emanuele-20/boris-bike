@@ -6,9 +6,9 @@ class Van {
     }
 
     takeBrokenBike(brokenBike){
-        if((this._isBroken(brokenBike)) && (this.bikes.length < this.capacity)){
+        if((this._isBroken(brokenBike)) && (!this._vanIsFull())){
             this.bikes.push(brokenBike)
-        } else if((this._isBroken(brokenBike)) && (this.bikes.length = this.capacity)){
+        } else if((this._isBroken(brokenBike)) && (this._vanIsFull())){
             return "No more space for other bikes"
         } else {
             if(!this._isBroken(brokenBike)){
@@ -23,11 +23,11 @@ class Van {
         }
     }
 
-    // _vanIsFull(){
-    //     if(this.bikes.length >= this.capacity){
-    //         return true
-    //     }
-    // }
+    _vanIsFull(){
+        if(this.bikes.length >= this.capacity){
+            return true
+        }
+    }
 
 
 

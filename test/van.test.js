@@ -1,4 +1,3 @@
-const Bike = require('../src/bike')
 const DockingStation = require('../src/dockingStation')
 const Van = require('../src/van')
 
@@ -27,32 +26,28 @@ describe("Van", () => {
     })
 
     it("Can brings broken bike from docking station", () => {
-        mockIsWorking = false // mocking broken bike
+        mockIsWorking = false // mocking broken bike // "false" will be active for the others tests too
         dockingStation.dock(bike)
         van.takeBrokenBike(bike)
         expect(van.bikes.length).toBe(1)
     })
 
     it("Can brings JUST broken bike from docking station", () => {
-        mockIsWorking = true //mocking a good bike
+        mockIsWorking = true //mocking a working bike
         dockingStation.dock(bike)
         expect(van.takeBrokenBike(bike)).toBe("This bike is not broken")
-    })
+    })    
 
-    xit("Returns an error if we reach the maximum van's capacity", () => {
+    it("Cannot store more than 5 bikes", () => {
         mockIsWorking = false
-        dockingStation = new DockingStation(3)
-        dockingStation.dock(bike)
-        dockingStation.dock(bike)
-        dockingStation.dock(bike)
-        expect(dockingStation.bikes.length).toBe(3)
-        van = new Van(3)
-        van.takeBrokenBike(bike)
-        van.takeBrokenBike(bike)
-        van.takeBrokenBike(bike)
-        expect(van.bikes.length).toBe(3)
-        
-    })  
-
+        for(let i = 0; i < 6 ; i++){
+            dockingStation.dock(bike)
+        }
+        for(let i = 0; i < 5 ; i++){
+            van.takeBrokenBike(bike)
+        }
+        expect(van.bikes.length).toBe(5)
+        expect(van.takeBrokenBike(bike)).toBe("No more space for other bikes")
+    })
 
 })

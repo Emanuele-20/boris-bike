@@ -17,6 +17,12 @@ class Van {
         }
     }   
 
+    sendToGarage(bikeToFix){
+        this.bikes.pop(bikeToFix)
+    }
+
+
+
     _isBroken(bikeToCheck){
         if (bikeToCheck.isWorking() == false){
             return true

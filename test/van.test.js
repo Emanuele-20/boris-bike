@@ -50,4 +50,12 @@ describe("Van", () => {
         expect(van.takeBrokenBike(bike)).toBe("No more space for other bikes")
     })
 
+    it("Sends bikes to the garage", ()=> {
+        mockIsWorking = false // mocking broken bike // "false" will be active for the others tests too
+        dockingStation.dock(bike)
+        van.takeBrokenBike(bike)
+        expect(van.bikes.length).toBe(1)
+        van.sendToGarage(bike)
+        expect(van.bikes.length).toBe(0)
+    })
 })

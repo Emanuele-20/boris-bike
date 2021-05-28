@@ -4,6 +4,9 @@ class Garage {
         this.storage = []
     }
 
+    acquireBrokenBike(brokenBike){
+        this.storage.push(brokenBike)
+    }
 }
 
 module.exports = Garage;

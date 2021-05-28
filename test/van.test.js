@@ -1,5 +1,6 @@
 const DockingStation = require('../src/dockingStation')
 const Van = require('../src/van')
+const Garage = require('../src/garage')
 
 let mockIsWorking = true
 let mockReportBroken = jest.fn()
@@ -17,12 +18,14 @@ describe("Van", () => {
     let dockingStation;
     let bike;
     let van;
+    let garage;
 
 
     beforeEach(() => {
         dockingStation = new DockingStation()
         van = new Van()
         bike = mockNewBike()
+        garage = new Garage()
     })
 
     it("Can brings broken bike from docking station", () => {
@@ -57,5 +60,7 @@ describe("Van", () => {
         expect(van.bikes.length).toBe(1)
         van.sendToGarage(bike)
         expect(van.bikes.length).toBe(0)
+        garage.acquireBrokenBike(bike)
+        expect(garage.storage.length).toBe(1)
     })
 })

@@ -80,7 +80,6 @@ describe("Docking Station", () => {
     // use const and not let 
     // npm run test --watch
 
-
     it("Can receive a fixed bike fron the van", () => {
         mockIsWorking = false // mocking broken bike // "false" will be active for the others tests too
         van.takeBrokenBike(bike)
@@ -105,4 +104,4 @@ describe("Docking Station", () => {
 })
 
 //npm run test -- dockingStation.test.js      isolate just one file test
-// npm run test --watch    
+//npm run test --watch    

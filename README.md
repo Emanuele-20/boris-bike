@@ -122,7 +122,7 @@ So that I can plan the distribution of bikes,
 I want a docking station to have a default capacity of 20 bikes.
 ```
 
-Our program is working, but it's getting complex. We need to refactor it into a better shape. We will do so using the first of several design principles: the Single Responsibility Principle ('SRP').
+## Our program is working, but it's getting complex. We need to refactor it into a better shape. We will do so using the first of several design principles: the Single Responsibility Principle ('SRP').
 
 
 ```
@@ -150,6 +150,7 @@ I'd like docking stations to accept returning bikes (broken or not).
 As a maintainer of the system,
 So that I can manage broken bikes and not disappoint users,
 I'd like vans to take broken bikes from docking stations and deliver them to garages to be fixed.
+```
 ```
 As a maintainer of the system,
 So that I can manage broken bikes and not disappoint users,

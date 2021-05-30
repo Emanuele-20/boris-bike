@@ -21,6 +21,9 @@ class Van {
         this.bikes.pop(bikeToFix)
     }
 
+    acquireFromGarage(fixedBike){
+        this.bikes.push(fixedBike)
+    }
 
 
     _isBroken(bikeToCheck){

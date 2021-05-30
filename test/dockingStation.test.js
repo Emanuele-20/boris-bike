@@ -8,23 +8,13 @@ let mockReportBroken = jest.fn()
 
 // jest.mock("modulePath", () => { ALWAYS A FUNCTION })
 
-// jest.mock("../src/bike.js", () => {
-//         jest.fn().mockImplementation(() => {
-//             return {
-//                 isWorking: () => mockIsWorking,
-//                 reportBroken: mockReportBroken
-//             }
-//         })
-//     }
-// )
-
 const mockNewBike = jest.fn().mockImplementation(() => {
     return {
         isWorking: () => mockIsWorking,
         reportBroken: mockReportBroken
-    }
+    }// jest has no way to mock the NEW keyword, so we return an object with the bike characteristic
 })
-// jest has no way to mock the NEW keyword, so we return an object with the bike characteristic
+
 
 describe("Docking Station", () => {
 

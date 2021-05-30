@@ -1,5 +1,6 @@
-const Bike = require('../src/bike')
 class DockingStation {
+
+
 
     constructor(capacity = 20){
         this.bikes = []
@@ -35,7 +36,9 @@ class DockingStation {
         return this.capacity = num
     }
 
-
+    getFixedBikeFromVan(fixedBike){
+        this.bikes.push(fixedBike)
+    }
 
     
 

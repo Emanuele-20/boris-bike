@@ -25,6 +25,9 @@ class Van {
         this.bikes.push(fixedBike)
     }
 
+    sendToTheDockingStation(fixdBike){
+        this.bikes.pop(fixdBike)
+    }
 
     _isBroken(bikeToCheck){
         if (bikeToCheck.isWorking() == false){

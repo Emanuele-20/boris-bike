@@ -81,23 +81,23 @@ describe("Docking Station", () => {
     // npm run test --watch
 
     it("Can receive a fixed bike fron the van", () => {
-        mockIsWorking = false // mocking broken bike // "false" will be active for the others tests too
-        van.takeBrokenBike(bike)
-        expect(van.bikes.length).toBe(1)
-        van.sendToGarage(bike)
-        expect(van.bikes.length).toBe(0)
-        garage.acquireBrokenBike(bike)
-        expect(garage.storage.length).toBe(1)
-        garage.fixBike()
-        expect(bike.isWorking()).toBe(true)
-        expect(garage.storage.length).toBe(0)
-        expect(garage.fixedBike.length).toBe(1)
-        garage.releaseFixedBike(bike)
-        van.acquireFromGarage(bike)
-        expect(van.bikes.length).toBe(1) // fixed bike collected 
-        van.sendToTheDockingStation(bike)
-        expect(van.bikes.length).toBe(0)
-        expect(dockingStation.bikes.length).toBe(0)
+        // mockIsWorking = false // mocking broken bike // "false" will be active for the others tests too
+        // van.takeBrokenBike(bike)
+        // expect(van.bikes.length).toBe(1)
+        // van.sendToGarage(bike)
+        // expect(van.bikes.length).toBe(0)
+        // garage.acquireBrokenBike(bike)
+        // expect(garage.storage.length).toBe(1)
+        // garage.fixBike()
+        // expect(bike.isWorking()).toBe(true)
+        // expect(garage.storage.length).toBe(0)
+        // expect(garage.fixedBike.length).toBe(1)
+        // garage.releaseFixedBike(bike)
+        // van.acquireFromGarage(bike)
+        // expect(van.bikes.length).toBe(1) // fixed bike collected 
+        // van.sendToTheDockingStation(bike)
+        // expect(van.bikes.length).toBe(0)
+        // expect(dockingStation.bikes.length).toBe(0)
         dockingStation.getFixedBikeFromVan(bike)
         expect(dockingStation.bikes.length).toBe(1)
     })

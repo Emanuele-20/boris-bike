@@ -12,7 +12,7 @@ class Bike {
         this.working = false
     }
 
-    reportFix(){
+    fix(){
         this.working = true
     }
 

@@ -2,7 +2,7 @@ class Garage {
 
     constructor(){
         this.storage = []
-        this.fixedBike = []
+        this.fixedBikes = []
     }
 
     acquireBrokenBike(brokenBike){
@@ -11,14 +11,12 @@ class Garage {
 
     fixBike(){
         let bikeToFix = this.storage.pop();
-        //console.log(bikeToFix)
-        bikeToFix.reportFix()
-        //bikeToFix.working = true
-        this.fixedBike.push(bikeToFix)
+        bikeToFix.fix()
+        this.fixedBikes.push(bikeToFix)
     }
 
     releaseFixedBike(fixedBike){
-        fixedBike = this.fixedBike.pop()
+        fixedBike = this.fixedBikes.pop()
     }
 
 }

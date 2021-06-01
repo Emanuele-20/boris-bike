@@ -9,10 +9,9 @@ const mockNewBike = jest.fn().mockImplementation(() => {
     return {
         isWorking: () => mockIsWorking,
         reportBroken: mockReportBroken,
-        reportFix: () => mockIsWorking = true
+        fix: () => mockIsWorking = true
     }
 })
-
 
 describe("Van", () => {
 
@@ -66,7 +65,7 @@ describe("Van", () => {
     })
 
     it("Can collect working bikes from the garage", () => {
-        //mockIsWorking = false // mocking broken bike // "false" will be active for the others tests too
+        // mockIsWorking = false // mocking broken bike // "false" will be active for the others tests too
         // dockingStation.dock(bike)
         // van.takeBrokenBike(bike)
         // expect(van.bikes.length).toBe(1)
@@ -78,7 +77,7 @@ describe("Van", () => {
         // garage.fixBike()
         // expect(bike.isWorking()).toBe(true)
         // expect(garage.storage.length).toBe(0)
-        // expect(garage.fixedBike.length).toBe(1)
+        // expect(garage.fixedBikes.length).toBe(1)
         // garage.releaseFixedBike(bike)
         van.acquireFromGarage(bike)
         expect(van.bikes.length).toBe(1) // fixed bike collected 
@@ -93,11 +92,10 @@ describe("Van", () => {
         // expect(van.bikes.length).toBe(0)
         // garage.acquireBrokenBike(bike)
         // expect(garage.storage.length).toBe(1)
-        // //console.log(garage.storage)
         // garage.fixBike()
         // expect(bike.isWorking()).toBe(true)
         // expect(garage.storage.length).toBe(0)
-        // expect(garage.fixedBike.length).toBe(1)
+        // expect(garage.fixedBikes.length).toBe(1)
         // garage.releaseFixedBike(bike)
         // van.acquireFromGarage(bike)
         // expect(van.bikes.length).toBe(1) // fixed bike collected 

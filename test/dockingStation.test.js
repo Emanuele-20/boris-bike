@@ -14,7 +14,7 @@ const mockNewBike = jest.fn().mockImplementation(() => {
     return {
         isWorking: () => mockIsWorking,
         reportBroken: mockReportBroken,
-        reportFix: () => mockIsWorking = true
+        fix: () => mockIsWorking = true
     }// jest has no way to mock the NEW keyword, so we return an object with the bike characteristic
 })
 
@@ -91,13 +91,13 @@ describe("Docking Station", () => {
         // garage.fixBike()
         // expect(bike.isWorking()).toBe(true)
         // expect(garage.storage.length).toBe(0)
-        // expect(garage.fixedBike.length).toBe(1)
+        // expect(garage.fixedBikes.length).toBe(1)
         // garage.releaseFixedBike(bike)
         // van.acquireFromGarage(bike)
         // expect(van.bikes.length).toBe(1) // fixed bike collected 
         // van.sendToTheDockingStation(bike)
         // expect(van.bikes.length).toBe(0)
-        // expect(dockingStation.bikes.length).toBe(0)
+        expect(dockingStation.bikes.length).toBe(0)
         dockingStation.getFixedBikeFromVan(bike)
         expect(dockingStation.bikes.length).toBe(1)
     })

@@ -21,8 +21,4 @@ describe("Bike class", () => {
         expect(bike.working).toBe(false)
     })
 
-
-
-
-
 })

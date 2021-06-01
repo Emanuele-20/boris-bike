@@ -41,8 +41,6 @@ class Van {
         }
     }
 
-
-
 }
 
 module.exports = Van;

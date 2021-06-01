@@ -1,7 +1,5 @@
 class DockingStation {
 
-
-
     constructor(capacity = 20){
         this.bikes = []
         this.capacity = capacity
@@ -40,7 +38,7 @@ class DockingStation {
         this.bikes.push(fixedBike)
     }
 
-    
+
 
     _dockIsFull(){
         if(this.bikes.length >= this.capacity){
